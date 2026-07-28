@@ -1,0 +1,66 @@
+{
+  "network_seed": 122991869,
+  "record_seed": 19900024,
+  "sim_seed": 321996894,
+  "phi_base_power": 10,
+ 
+  "dt": 0.1,
+  "bin_dt": 1.0, 
+  "simtime": 1000.0,
+  "delay": 1.5,
+
+  "t0": 200.0,
+  "nu_ext_over_nu_thr" : 1.0,
+
+  "g": 8.0, 
+  "eta": 3.7,
+  "epsilon": 0.1, 
+
+  "J": 0.1,
+
+  "order": 2500,
+  "excitatory_order_multiplier": 4,
+  "inhibitory_order_multiplier": 1,
+  "gamma": null, 
+  "NE" : null,
+  "NI": null, 
+  "N_neurons" : null,
+  "N_rec" : 50,
+  "num_sample_runs" : 100, 
+
+  "CE" : null,
+  "CI" : null,
+  "C_tot" : null,
+  "C_ext" : null,  
+
+  "theta" : 20.0, 
+  "tau_m": 20.0, 
+  "tau_syn": 0.5,
+  "C_m": 1.0, 
+  "V_m": 0.0, 
+  "V_th": null,
+  "V_reset": 10.0, 
+  "E_L": 0.0, 
+  "t_ref": 2.0, 
+
+  "rate": 10.0,
+  "time": 1000.0,
+ 
+  "output_dir": "outputs",
+  "synapse_type": "delta",
+  "ex_record_indices": null,
+  "in_record_indices": null,
+  
+  "run_excitatory_rate": null,
+  "run_inhibitory_rate": null,
+  "run_build_time": null,
+  "run_simulation_time": null,
+  "run_tot_num_synapses": null,
+  "run_num_ex_synapses" : null,
+  "run_num_in_synapses": null,
+  "run_Poisson_p_rate": null,
+  "run_nu_th": null,
+  "run_nu_ext": null,
+  "run_mean_CV": null,
+  "run_median_CV": null
+}

@@ -1,0 +1,109 @@
+#! /bin/sh
+
+prefix="/tmp/tmpzvm81pt4/wheel/platlib"
+exec_prefix=${prefix}
+
+usage()
+{
+    cat <<EOF
+Usage: nest-config [OPTION]
+
+Known values for OPTION are:
+
+  --prefix              NEST install prefix for architecture-independent files
+  --exec-prefix         NEST install prefix for architecture-dependent files
+  --libs                print library linking information for extension modules
+  --cflags              print pre-processor and compiler flags
+  --includes            print includes
+  --compiler            print the compiler used to compile NEST
+  --compiler-name       Print the compiler name used to compile NEST
+  --compiler-version    Print the compiler version used to compile NEST
+  --python-executable   print full path to Python interpreter used
+  --python-version      print Python version string for interpreter
+  --static-libraries    print "ON" if configured for static libraries, "OFF" otherwise
+  --docdir              print the relative path (to prefix) to the installed documentation
+  --datadir             print the relative path (to prefix) to the installed data
+  --libdir              print the relative path (to prefix) to the installed libraries
+  --help                display this help and exit
+  --version             output version information
+
+EOF
+
+    exit "${1}"
+}
+
+if test $# -eq 0; then
+    usage 1
+fi
+
+while test $# -gt 0; do
+    case "$1" in
+    -*=*)
+        optarg="$(echo "$1" | sed 's/[-_a-zA-Z0-9]*=//')"
+        ;;
+    *)
+        optarg=
+        ;;
+    esac
+
+    case "$1" in
+    --prefix=*)
+        prefix="${optarg}"
+        ;;
+    --prefix)
+        echo "${prefix}"
+        ;;
+    --exec-prefix)
+        echo "${exec_prefix}"
+        ;;
+    --version)
+        echo "3.10.0"
+        ;;
+    --help)
+        usage 0
+        ;;
+    --includes)
+        echo " -I/tmp/tmpzvm81pt4/wheel/platlib/include/nest -I/usr/local/include -I/usr/include -I/usr/local/include "
+        ;;
+    --cflags)
+        echo " -Wall -fopenmp -O2 -fdiagnostics-color=auto -O3 -DNDEBUG -std=c++20"
+        ;;
+    --libs)
+        echo "-L${prefix}/lib64/nest /usr/local/lib/libltdl.so /usr/lib64/libgsl.so /usr/lib64/libgslcblas.so    /opt/rh/devtoolset-10/root/usr/lib/gcc/x86_64-redhat-linux/10/libgomp.so  "
+        ;;
+    --compiler)
+        echo "/opt/rh/devtoolset-10/root/usr/bin/g++"
+        ;;
+    --compiler-name)
+        echo "GNU"
+        ;;
+    --compiler-version)
+        echo "10.2.1"
+        ;;
+    --python-executable)
+        echo "/opt/python/cp312-cp312/bin/python"
+        ;;
+    --python-version)
+        echo "3.12.7"
+        ;;
+
+    --static-libraries)
+        echo "OFF"
+        ;;
+    --docdir)
+        echo "share/doc/nest"
+        ;;
+    --datadir)
+        echo "nest/share/nest"
+        ;;
+    --libdir)
+        echo "lib64"
+        ;;
+    *)
+        usage 1
+        ;;
+    esac
+    shift
+done
+
+exit 0

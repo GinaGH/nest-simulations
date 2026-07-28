@@ -1,0 +1,6 @@
+Covariance Matrix Summary (Excitatory)
+----------------------------------------
+Diagonal mean: 1.268
+Diagonal std:  0.136
+Offdiag mean:  0.000
+Offdiag std:   0.109

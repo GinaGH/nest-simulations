@@ -1,0 +1,6 @@
+Covariance Matrix Summary (Inhibitory)
+----------------------------------------
+Diagonal mean: 1.267
+Diagonal std:  0.156
+Offdiag mean:  0.004
+Offdiag std:   0.113
